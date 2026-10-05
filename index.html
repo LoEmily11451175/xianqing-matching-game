@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5ec">
+  <meta name="description" content="走進沈復的想像小花園，以六組拖曳配對探索《閒情記趣》的物外之趣。香港中三中國語文課堂遊戲。">
+  <title>閒情記趣 · 想像小花園</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="閒情記趣，返回頁頂"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 28 28"><path d="M14 23V12M14 18C4 19 4 10 4 10s10-1 10 8ZM14 13C13 4 24 4 24 4s1 10-10 9Z"/></svg></span><span>閒情記趣<span class="brand-divider">/</span><span class="brand-sub">想像小花園</span></span></a>
+      <nav class="controls" aria-label="遊戲控制">
+        <button class="control-btn music-btn" id="music-toggle" type="button" aria-pressed="true" title="開啟或關閉背景音樂"><span class="music-bars" aria-hidden="true"><i></i><i></i><i></i></span><span id="music-label">背景音樂</span></button>
+        <button class="control-btn icon-btn" id="sfx-toggle" type="button" aria-pressed="true" aria-label="關閉答題音效" title="答題音效"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5ZM15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/><path class="mute-slash" d="m4 4 16 16"/></svg></button>
+        <span class="control-divider" aria-hidden="true"></span>
+        <button class="control-btn" id="reset-btn" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg><span>重新開始</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <img class="hero-art" src="assets/garden-hero.webp" alt="手繪的少年沈復在草木與土石間觀察癩蝦蟆，空中飛舞着仙鶴。" fetchpriority="high">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span>中三中國語文 · 課文探索</p>
+          <h1 id="page-title">小小事物，<br><span>大大想像。</span><svg class="title-spark" viewBox="0 0 42 42" aria-hidden="true"><path d="m21 2 3 14 14 5-14 3-3 16-4-15L3 21l14-5Z"/></svg></h1>
+          <div class="hero-tags"><span>✧ 想像力挑戰</span><span>6 組配對</span><span>不限重試</span></div>
+        </div>
+        <div class="hero-note"><span>「時有物外之趣」</span><small>—— 沈復《閒情記趣》</small></div>
+      </section>
+
+      <section class="game" aria-label="想像配對遊戲">
+        <div class="game-heading">
+          <div><p><span class="desktop-instruction">拖動左邊的想像卡，放到對應的事物上。</span><span class="mobile-instruction">拖動想像卡，放到對應的事物上。</span><span class="tap-hint">也可以先點選卡片，再點選答案格。</span></p></div>
+          <div class="progress-wrap" aria-label="配對進度"><div class="progress-caption"><span>探索進度</span><strong><span id="matched-count">0</span><span class="progress-total"> / 6</span></strong></div><div class="progress-dots" id="progress-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        </div>
+
+        <div class="play-area">
+          <aside class="option-bank" aria-labelledby="option-heading">
+            <div class="section-label"><span class="section-step">01</span><h3 id="option-heading">想像的事物</h3><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16 9-9M7 4l1 3M16 13l3 1M16 3v3M4 9H1M19 5l2-2M19 19l2 2"/></svg></div>
+            <p class="bank-help">拿起一張卡，讓想像發生。</p>
+            <div class="options" id="options"></div>
+            <div class="bank-note"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M14 27V11M14 21C3 21 3 12 3 12s11 0 11 9ZM14 16C14 5 26 4 26 4s0 12-12 12Z"/></svg><p>細心觀察 + 豐富想像<br><strong>平凡也可以很有趣。</strong></p></div>
+          </aside>
+
+          <div class="garden-board" aria-labelledby="target-heading">
+            <div class="section-label board-label"><span class="section-step">02</span><h3 id="target-heading">所見的事物</h3><span class="board-label-note">沈復把它們想像成甚麼？</span></div>
+            <div class="targets" id="targets"></div>
+          </div>
+        </div>
+
+        <div class="feedback-strip" id="feedback" role="status" aria-live="polite" aria-atomic="true"><span class="feedback-icon" aria-hidden="true">✧</span><div><strong>讓想像力出發！</strong><span>六組小發現，等你來配對。</span></div><span class="feedback-decoration" aria-hidden="true">✦</span></div>
+      </section>
+
+      <footer><span>《閒情記趣》<span class="footer-dot">·</span>沈復的童年觀察筆記</span><span>用眼睛觀察，用想像看世界。<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V9M12 15C3 15 3 7 3 7s9 0 9 8ZM12 10C12 2 21 2 21 2s0 8-9 8Z"/></svg></span></footer>
+    </main>
+  </div>
+
+  <dialog id="complete-dialog" class="modal completion-modal" aria-labelledby="complete-title">
+    <button type="button" class="modal-close" id="close-complete" aria-label="關閉完成畫面">×</button>
+    <div class="completion-stamp" aria-hidden="true">✧</div>
+    <p class="eyebrow">6 / 6 · 全部配對成功</p><h2 id="complete-title">你也發現了<br><span>物外之趣！</span></h2>
+    <p>小小的事物，經過細心觀察和豐富想像，<br>就能變成一個奇妙的大世界。</p>
+    <div class="completion-stats"><span><strong>6</strong>組想像已找到</span><span><strong id="attempt-count">6</strong>次配對嘗試</span></div>
+    <div class="reflection"><span>想一想</span><p>如果你是沈復，你會把課室裏的<br>甚麼事物想像成另一樣東西？</p></div>
+    <div class="modal-actions"><button class="primary-btn" type="button" id="play-again">再探索一次 <span aria-hidden="true">↻</span></button><button class="secondary-btn" type="button" id="review-btn">回看我的配對</button></div>
+  </dialog>
+
+  <dialog id="reset-dialog" class="modal reset-modal" aria-labelledby="reset-title"><span class="reset-symbol" aria-hidden="true">↻</span><h2 id="reset-title">再探索一次小花園？</h2><p>目前的配對將會清空，想像卡會重新洗牌。</p><div class="modal-actions"><button class="primary-btn" id="confirm-reset" type="button">重新開始</button><button class="secondary-btn" id="cancel-reset" type="button">繼續配對</button></div></dialog>
+  <div id="confetti" aria-hidden="true"></div>
+  <script src="game.js"></script>
+</body>
+</html>
