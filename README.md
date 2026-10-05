@@ -1,5 +1,7 @@
 # 《閒情記趣》配對遊戲
 
+[立即遊玩｜GitHub Pages](https://loemily11451175.github.io/xianqing-matching-game/)
+
 為香港中三級中國語文課堂設計的配對小遊戲。將六張「想像的事物」卡片配對至「所見的事物」，認識沈復筆下的物外之趣。
 
 ## 遊玩方式
